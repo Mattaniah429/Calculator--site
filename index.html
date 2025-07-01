@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Multi Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <button onclick="toggleDarkMode()" id="darkToggle">🌙 Dark Mode</button>
+    </div>
+    <div class="tabs">
+      <button onclick="switchTab('basic')" class="active">🔢 Basic</button>
+      <button onclick="switchTab('emi')">💰 EMI</button>
+      <button onclick="switchTab('crypto')">🪙 Crypto</button>
+    </div>
+
+    <!-- Basic Calculator -->
+    <div class="calculator" id="basicTab">
+      <div class="top-bar">
+        <button onclick="startVoice()">🎤 Speak</button>
+      </div>
+      <input type="text" id="display" disabled />
+      <div class="buttons">
+        <button onclick="clearDisplay()">C</button>
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('9')">9</button>
+        <button onclick="appendToDisplay('/')">/</button>
+        <button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('6')">6</button>
+        <button onclick="appendToDisplay('*')">*</button>
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('3')">3</button>
+        <button onclick="appendToDisplay('-')">-</button>
+        <button onclick="appendToDisplay('0')">0</button>
+        <button onclick="appendToDisplay('.')">.</button>
+        <button onclick="calculate()">=</button>
+        <button onclick="appendToDisplay('+')">+</button>
+      </div>
+      <div class="history">
+        <h3>History</h3>
+        <button onclick="clearHistory()">🗑️ Clear History</button>
+        <ul id="historyList"></ul>
+      </div>
+    </div>
+
+    <!-- EMI Calculator -->
+    <div class="calculator hidden" id="emiTab">
+      <h2>EMI Calculator</h2>
+      <label>Loan Amount (₹)</label>
+      <input type="number" id="loanAmount" placeholder="e.g. 500000" />
+      <label>Interest Rate (%)</label>
+      <input type="number" id="interestRate" placeholder="e.g. 7.5" step="0.1" />
+      <label>Loan Term (Years)</label>
+      <input type="number" id="loanTerm" placeholder="e.g. 5" />
+      <button onclick="calculateEMI()">Calculate</button>
+      <div id="emiResult">
+        <p><strong>Monthly EMI:</strong> ₹<span id="emi">0</span></p>
+        <p><strong>Total Interest:</strong> ₹<span id="interest">0</span></p>
+        <p><strong>Total Payment:</strong> ₹<span id="total">0</span></p>
+      </div>
+    </div>
+
+    <!-- Crypto Calculator -->
+    <div class="calculator hidden" id="cryptoTab">
+      <h2>Crypto Converter</h2>
+      <label>Select Crypto</label>
+      <select id="cryptoType">
+        <option value="BTC">Bitcoin (BTC)</option>
+        <option value="ETH">Ethereum (ETH)</option>
+      </select>
+      <label>Amount</label>
+      <input type="number" id="cryptoAmount" placeholder="e.g. 0.1" />
+      <label>Convert To</label>
+      <select id="currency">
+        <option value="INR">INR</option>
+        <option value="USD">USD</option>
+      </select>
+      <button onclick="convertCrypto()">Convert</button>
+      <div id="cryptoResult"><strong>Value:</strong> <span id="convertedValue">0</span></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+<!-- 🚀 Affiliate Promotions -->
+<div class="affiliate-box">
+  <h3>💰 Need a Personal Loan?</h3>
+  <p>Compare loan offers instantly on <a href="https://affiliate.bankbazaar.com/?ref=yourid" target="_blank">BankBazaar</a>. Fast approvals, low interest rates.</p>
+</div>
+
+<div class="affiliate-box">
+  <h3>🪙 Start Trading Crypto</h3>
+  <p>Join India’s trusted crypto exchange <a href="https://wazirx.com/signup?ref=yourrefcode" target="_blank">WazirX</a> and start buying Bitcoin & Ethereum. Sign up now and earn rewards!</p>
+</div>
+
+</body>
+</html>
